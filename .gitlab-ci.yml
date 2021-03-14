@@ -1,0 +1,40 @@
+default:
+  image:
+    name: hashicorp/terraform:0.14.8
+
+stages:
+  - init
+  - validate
+  - plan
+  - apply
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  #key: ""
+  paths:
+    - .terraform/
+    - .terraform.lock.hcl
+
+terraform-get:
+  stage: init
+  script: 
+    - terraform version
+    - terraform get # init
+
+terraform-validate:
+  stage: validate
+  script:
+    - terraform validate
+    - terraform fmt -check 
+
+terraform-plan:
+  stage: plan
+  script: terraform plan -out plan
+
+terraform-apply:
+  stage: apply
+  only:
+    - master
+  script: 
+    - terraform apply -auto-approve plan # only master
+    - terraform show

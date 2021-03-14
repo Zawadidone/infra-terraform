@@ -1,18 +1,21 @@
 default:
   image:
     name: hashicorp/terraform:0.14.8
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}
-    paths:
-      - .terraform/
-      - .terraform.lock.hcl
+    entrypoint: [""]
+
+variables:
+  TF_ROOT: ${CI_PROJECT_DIR}
+
+cache:
+  paths:
+    - ${TF_ROOT}/.terraform/
+    - ${TF_ROOT}/.terraform.lock.hcl
 
 stages:
   - init
   - validate
   - plan
   - apply
-
 
 terraform-get:
   stage: init
@@ -29,6 +32,10 @@ terraform-validate:
 terraform-plan:
   stage: plan
   script: terraform plan -out plan
+  artifacts:
+    name: plan
+    paths:
+      - ${TF_ROOT}/plan
 
 terraform-apply:
   stage: apply

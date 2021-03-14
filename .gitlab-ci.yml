@@ -1,6 +1,11 @@
 default:
   image:
     name: hashicorp/terraform:0.14.8
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - .terraform/
+      - .terraform.lock.hcl
 
 stages:
   - init
@@ -8,11 +13,6 @@ stages:
   - plan
   - apply
 
-cache:
-  key: ${CI_COMMIT_REF_SLUG}
-  paths:
-    - .terraform/
-    - .terraform.lock.hcl
 
 terraform-get:
   stage: init

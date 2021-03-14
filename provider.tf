@@ -6,4 +6,6 @@ terraform {
   }
 }
 
-provider "transip" {}
+provider "transip" {
+  account_name = "zawadidone"
+}

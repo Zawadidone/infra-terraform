@@ -10,7 +10,6 @@ stages:
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
-  #key: ""
   paths:
     - .terraform/
     - .terraform.lock.hcl
@@ -18,8 +17,8 @@ cache:
 terraform-get:
   stage: init
   script: 
+    - terraform init #get
     - terraform version
-    - terraform get # init
 
 terraform-validate:
   stage: validate

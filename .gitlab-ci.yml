@@ -31,7 +31,7 @@ terraform-validate:
 
 terraform-plan:
   stage: plan
-  script: terraform plan -out plan
+  script: TF_LOG=DEBUG OS_DEBUG=1 terraform plan -out plan
   artifacts:
     name: plan
     paths:

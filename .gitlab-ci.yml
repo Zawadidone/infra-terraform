@@ -27,11 +27,11 @@ terraform-validate:
   stage: validate
   script:
     - terraform validate
-    - terraform fmt -check 
+    - terraform fmt #-check 
 
 terraform-plan:
   stage: plan
-  script: terraform plan -out plan
+  script: TF_LOG=DEBUG OS_DEBUG=1 terraform plan -out plan
   artifacts:
     name: plan
     paths:
@@ -42,5 +42,5 @@ terraform-apply:
   only:
     - master
   script: 
-    - terraform apply -auto-approve plan # only master
+    - terraform apply -auto-approve plan
     - terraform show

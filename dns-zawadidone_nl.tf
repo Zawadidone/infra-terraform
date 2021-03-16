@@ -11,10 +11,10 @@ resource "transip_dns_record" "CNAME" {
 }
 
 resource "transip_dns_record" "A" {
-  domain  = data.transip_domain.zawadidone_nl.id
-  name    = "@"
-  expire  = 86400
-  type    = "A"
+  domain = data.transip_domain.zawadidone_nl.id
+  name   = "@"
+  expire = 86400
+  type   = "A"
   content = [
     "185.199.108.153",
     "185.199.109.153",
@@ -24,10 +24,10 @@ resource "transip_dns_record" "A" {
 }
 
 resource "transip_dns_record" "MX" {
-  domain  = data.transip_domain.zawadidone_nl.id
-  name    = "@"
-  expire  = 86400
-  type    = "MX"
+  domain = data.transip_domain.zawadidone_nl.id
+  name   = "@"
+  expire = 86400
+  type   = "MX"
   content = [
     "10 mail.protonmail.ch.",
     "20 mailsec.protonmail.ch.",
@@ -35,10 +35,10 @@ resource "transip_dns_record" "MX" {
 }
 
 resource "transip_dns_record" "TXT" {
-  domain  = data.transip_domain.zawadidone_nl.id
-  name    = "@"
-  expire  = 86400
-  type    = "TXT"
+  domain = data.transip_domain.zawadidone_nl.id
+  name   = "@"
+  expire = 86400
+  type   = "TXT"
   content = [
     "protonmail-verification=bae59d179d326bd43900fd5fd19ecc0d2b9f2fce",
     "v=spf1 include:_spf.protonmail.ch mx ~all"

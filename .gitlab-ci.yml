@@ -21,7 +21,6 @@ terraform-get:
   stage: init
   script: 
     - terraform init
-    - terraform version
 
 terraform-validate:
   stage: validate

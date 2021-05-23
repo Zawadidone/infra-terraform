@@ -20,14 +20,14 @@ stages:
 terraform-get:
   stage: init
   script: 
-    - terraform init #get
+    - terraform init
     - terraform version
 
 terraform-validate:
   stage: validate
   script:
     - terraform validate
-    - terraform fmt #-check 
+    - terraform fmt
 
 terraform-plan:
   stage: plan

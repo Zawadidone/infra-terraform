@@ -1,6 +1,6 @@
 default:
   image:
-    name: registry.gitlab.com/zawadidone/infra-terraform/terraform:0.15.4
+    name: hashicorp/terraform:0.15.4
     entrypoint: [""]
 
 variables:
@@ -31,7 +31,9 @@ terraform-validate:
 
 terraform-plan:
   stage: plan
-  script: terraform plan -out plan
+  script: 
+    - apk add tzdata
+    - terraform plan -out plan
   artifacts:
     name: plan
     paths:
@@ -42,5 +44,5 @@ terraform-apply:
   only:
     - master
   script: 
-    - terraform apply -auto-approve plan
+    - terraform apply -auto-approve plan -parallelism=1
     - terraform show

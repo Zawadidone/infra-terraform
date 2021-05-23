@@ -44,5 +44,5 @@ terraform-apply:
   only:
     - master
   script: 
-    - terraform apply -auto-approve plan -parallelism 1
+    - terraform apply -parallelism 1 -auto-approve plan
     - terraform show

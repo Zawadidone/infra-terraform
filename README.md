@@ -1,4 +1,5 @@
-[![Cyberveiligheid](https://img.shields.io/badge/Cyberveiligheid-97%25-yellow.svg)](https://eurocyber.nl)
+
+[![pipeline status](https://gitlab.com/Zawadidone/infra-terraform/badges/master/pipeline.svg)](https://gitlab.com/Zawadidone/infra-terraform/-/commits/master) [![Cyberveiligheid](https://img.shields.io/badge/Cyberveiligheid-97%25-yellow.svg)](https://eurocyber.nl)
 # infra-terraform
 
 [Transip Terraform documentation](https://registry.terraform.io/providers/aequitas/transip/latest)

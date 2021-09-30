@@ -23,6 +23,19 @@ resource "transip_dns_record" "A" {
   ]
 }
 
+resource "transip_dns_record" "AAAA" {
+  domain = data.transip_domain.zawadidone_nl.id
+  name   = "@"
+  expire = 86400
+  type   = "AAAA"
+  content = [
+    "2606:50c0:8000::153",
+    "2606:50c0:8001::153",
+    "2606:50c0:8002::153",
+    "2606:50c0:8003::153",
+  ]
+}
+
 resource "transip_dns_record" "MX" {
   domain = data.transip_domain.zawadidone_nl.id
   name   = "@"

@@ -82,14 +82,6 @@ resource "transip_dns_record" "TXT" {
   ]
 }
 
-resource "transip_dns_record" "TXT_DKIM" {
-  domain  = data.transip_domain.zawadidone_nl.id
-  name    = "protonmail._domainkey"
-  expire  = 86400
-  type    = "TXT"
-  content = ["v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDbXZpWe+npm/U8F6CGwCambQtg7jeqlrTTZxy1hp9zU04TLBPKMEURt7sWqtBFu6ka2RVmDZ6n5ODO8wE0PEOVEXIJEpUEe+e3N0Ebsk79ZlOv6hvCyDG44JzJ2BYXldV70I8w/UxIU1pxJT6TD9/dQkPtWCcYFI+zLHp0x8gt1QIDAQAB"]
-}
-
 resource "transip_dns_record" "TXT_DMARC" {
   domain  = data.transip_domain.zawadidone_nl.id
   name    = "_dmarc"

@@ -14,3 +14,7 @@ The provider create's a temporary folder used for [caching](https://github.com/a
 The standard [Terraform](https://hub.docker.com/r/hashicorp/terraform) Docker image doensn't include the package tzdata which results in errors dealing with [time zones](https://gitlab.com/Zawadidone/infra-terraform/-/jobs/1287063929): `Error: failed to lookup domain "zawadidone.nl": unknown time zone Europe/Amsterdam`
 
 Installing the package `tzdata` before executing `terraform plan` fixes this issue.
+
+**Update/Delete DNS records** 
+
+The updating or deleting of DNS records is not supported by the provider.

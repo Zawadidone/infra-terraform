@@ -27,16 +27,13 @@ terraform-validate:
   script:
     - terraform validate
     - terraform fmt
-  dependencies:
-    - terraform-get
+
 
 terraform-plan:
   stage: plan
   script: 
     - apk add tzdata
     - terraform plan -out plan
-  dependencies:
-    - terraform-validate
   artifacts:
     name: plan
     paths:
@@ -49,6 +46,4 @@ terraform-apply:
   script: 
     - terraform apply -parallelism 1 -auto-approve plan
     - terraform show
-  dependencies:
-    - terraform-plan
   allow_failure: true

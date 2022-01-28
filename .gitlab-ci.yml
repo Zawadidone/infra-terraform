@@ -1,6 +1,7 @@
 default:
   image:
     name: registry.gitlab.com/zawadidone/terrraform-image:stable
+    entrypoint: [""]
 
 variables:
   TF_ROOT: ${CI_PROJECT_DIR}
@@ -19,7 +20,7 @@ stages:
 terraform-get:
   stage: init
   script: 
-    - init
+    - terraform init
 
 terraform-validate:
   stage: validate

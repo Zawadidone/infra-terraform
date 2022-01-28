@@ -32,7 +32,6 @@ terraform-validate:
 terraform-plan:
   stage: plan
   script: 
-    - apk add tzdata
     - terraform plan -out plan
   artifacts:
     name: plan
